@@ -95,7 +95,7 @@ public class TreeFile {
     	  BinaryNode<Character> leftChild = readTree(file);
     	  BinaryNode<Character> rightChild = readTree(file);
     	  result = new BinaryNode<>(data, leftChild, rightChild);
-         result = null;
+      
        } else if(line.charAt(0) == 'L'){ //leaf node
          result = new BinaryNode<>(line.charAt(2));
        } else { //NULL child
@@ -110,6 +110,7 @@ public class TreeFile {
        if(root.left == null && root.right == null){ //leaf: write L
          //TODO: write "L root.data" to the file and return
     	   file.write("L " + root.data + "\n");
+          return;
        } else { //internal: write I
          file.write("I " + root.data + "\n");
        }
@@ -152,3 +153,4 @@ public class TreeFile {
 
 
 }
+
